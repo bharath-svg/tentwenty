@@ -6,7 +6,7 @@ Built with Next.js, TypeScript, Tailwind CSS and Auth.js / NextAuth.
 
 ## Live Demo
 
-`ADD_VERCEL_URL_HERE`
+`ADD_VERCEL_URL_HERE` :   https://tentwenty-vert.vercel.app/login
 
 ## Demo Login
 
