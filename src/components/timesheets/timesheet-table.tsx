@@ -1,5 +1,6 @@
 import { StatusBadge } from "@/components/timesheets/status-badge";
 import type { Timesheet } from "@/types/timesheet";
+import Link from "next/link";
 
 type TimesheetTableProps = {
   timesheets: Timesheet[];
@@ -66,12 +67,12 @@ export function TimesheetTable({
                 </td>
 
                 <td className="px-4 py-4">
-                  <button
-                    type="button"
+                  <Link
+                    href={`/timesheets/${timesheet.id}`}
                     className="text-sm font-medium capitalize text-blue-600 hover:text-blue-700"
                   >
                     {timesheet.action}
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}
