@@ -149,5 +149,5 @@ npm run build
 
 ## Submission
 
-- GitHub repository: `ADD_GITHUB_URL_HERE`
-- Working demo: `ADD_VERCEL_URL_HERE`
+- GitHub repository: https://tentwenty-vert.vercel.app/login
+- Working demo: https://github.com/bharath-svg/tentwenty
