@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ticktock Timesheet Management App
 
-## Getting Started
+Frontend technical assessment for Tentwenty.
 
-First, run the development server:
+Built with Next.js, TypeScript, Tailwind CSS and Auth.js / NextAuth.
+
+## Live Demo
+
+`ADD_VERCEL_URL_HERE`
+
+## Demo Login
+
+```text
+Email: john@ticktock.com
+Password: password123
+```
+
+Authentication is intentionally implemented using dummy user data as requested in the assessment.
+
+## Features
+
+- Responsive login page
+- Dummy authentication using Auth.js / NextAuth
+- Protected dashboard routes
+- Timesheet table
+- Status filtering
+- Date-range filtering
+- Pagination
+- Weekly timesheet detail view
+- Add timesheet entry
+- Edit timesheet entry
+- Delete timesheet entry
+- Form validation and error handling
+- Loading and empty states
+- Internal Next.js API routes
+- Responsive layouts for mobile, tablet and desktop
+- Basic component tests
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Auth.js / NextAuth
+- Vitest
+- React Testing Library
+
+## Setup
+
+Clone the repository:
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd tentwenty-timesheet
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env.local` file in the project root:
+
+```env
+AUTH_SECRET=
+```
+
+Generate a local Auth.js secret:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('base64url'))"
+```
+
+Add the generated value:
+
+```env
+AUTH_SECRET=YOUR_GENERATED_SECRET
+```
+
+Then start the application:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment Variables
 
-## Learn More
+`.env.example` is included in the repository:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+AUTH_SECRET=
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The real `.env.local` file is ignored by Git and should never be committed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Each developer or deployment environment should generate its own `AUTH_SECRET`.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Internal API Routes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Client-side timesheet operations use internal Next.js API routes.
+
+```text
+GET    /api/timesheets
+GET    /api/timesheets/:id
+POST   /api/timesheets/:id/entries
+PATCH  /api/timesheets/:id/entries/:entryId
+DELETE /api/timesheets/:id/entries/:entryId
+```
+
+## Testing
+
+Run the component tests:
+
+```bash
+npm run test
+```
+
+Run lint:
+
+```bash
+npm run lint
+```
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+## Assumptions / Notes
+
+- Authentication uses mock credentials because the assessment requests dummy authentication.
+- No database is used.
+- Timesheet data is mocked locally.
+- Add/Edit/Delete requests go through internal Next.js API routes.
+- Mock mutations may reset when the server restarts because there is no persistent database.
+- The supplied Figma mainly provides desktop designs, so responsive mobile/tablet behavior was implemented using standard responsive design practices.
+
+
+
+## Submission
+
+- GitHub repository: `ADD_GITHUB_URL_HERE`
+- Working demo: `ADD_VERCEL_URL_HERE`
