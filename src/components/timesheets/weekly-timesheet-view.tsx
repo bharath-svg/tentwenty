@@ -264,14 +264,15 @@ export function WeeklyTimesheetView({
         ))}
       </div>
 
-      <TimesheetEntryModal
-        isOpen={selectedDayId !== null}
-        timesheetId={timesheetId}
-        dayId={selectedDayId}
-        entry={editingEntry}
-        onClose={handleCloseModal}
-        onSaved={handleSaved}
-      />
+      {selectedDayId && (
+        <TimesheetEntryModal
+          timesheetId={timesheetId}
+          dayId={selectedDayId}
+          entry={editingEntry}
+          onClose={handleCloseModal}
+          onSaved={handleSaved}
+        />
+      )}
     </>
   );
 }

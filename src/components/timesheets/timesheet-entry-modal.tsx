@@ -2,7 +2,7 @@
 
 import {
   type FormEvent,
-  useEffect,
+
   useState,
 } from "react";
 
@@ -14,9 +14,9 @@ import type {
 } from "@/types/timesheet";
 
 type TimesheetEntryModalProps = {
-  isOpen: boolean;
+  // isOpen: boolean;
   timesheetId: string;
-  dayId: string | null;
+  dayId: string
   entry: TimesheetEntry | null;
   onClose: () => void;
   onSaved: (
@@ -31,12 +31,12 @@ type FormErrors = {
   hours?: string;
 };
 
-type CreateEntryResponse = {
-  data: WeeklyTimesheet;
-};
+// type CreateEntryResponse = {
+//   data: WeeklyTimesheet;
+// };
 
 export function TimesheetEntryModal({
-  isOpen,
+  // isOpen,
   timesheetId,
   dayId,
   entry,
@@ -44,15 +44,16 @@ export function TimesheetEntryModal({
   onSaved,
 }: TimesheetEntryModalProps) {
   const [projectName, setProjectName] =
-    useState("");
+    useState(entry?.projectName ?? "");
 
   const [typeOfWork, setTypeOfWork] =
-    useState("Bug fixes");
+    useState(entry?.typeOfWork ?? "Bug fixes");
 
   const [description, setDescription] =
-    useState("");
+    useState(entry?.description ?? "");
 
-  const [hours, setHours] = useState(12);
+  const [hours, setHours] =
+    useState(entry?.hours ?? 12);
 
   const [errors, setErrors] =
     useState<FormErrors>({});
@@ -63,26 +64,26 @@ export function TimesheetEntryModal({
   const [isSubmitting, setIsSubmitting] =
     useState(false);
 
-  useEffect(() => {
-    if (!isOpen) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!isOpen) {
+  //     return;
+  //   }
 
-    if (entry) {
-      setProjectName(entry.projectName);
-      setTypeOfWork(entry.typeOfWork);
-      setDescription(entry.description);
-      setHours(entry.hours);
-    } else {
-      setProjectName("");
-      setTypeOfWork("Bug fixes");
-      setDescription("");
-      setHours(12);
-    }
+  //   if (entry) {
+  //     setProjectName(entry.projectName);
+  //     setTypeOfWork(entry.typeOfWork);
+  //     setDescription(entry.description);
+  //     setHours(entry.hours);
+  //   } else {
+  //     setProjectName("");
+  //     setTypeOfWork("Bug fixes");
+  //     setDescription("");
+  //     setHours(12);
+  //   }
 
-    setErrors({});
-    setSubmitError(null);
-  }, [isOpen, dayId, entry]);
+  //   setErrors({});
+  //   setSubmitError(null);
+  // }, [isOpen, dayId, entry]);
 
   function validateForm() {
     const nextErrors: FormErrors = {};
@@ -120,9 +121,9 @@ export function TimesheetEntryModal({
   ) {
     event.preventDefault();
 
-    if (!dayId) {
-      return;
-    }
+    // if (!dayId) {
+    //   return;
+    // }
 
     if (!validateForm()) {
       return;
@@ -186,9 +187,9 @@ export function TimesheetEntryModal({
     }
   }
 
-  if (!isOpen || !dayId) {
-    return null;
-  }
+  // if (!isOpen || !dayId) {
+  //   return null;
+  // }
 
 
   const isEditMode = entry !== null;
